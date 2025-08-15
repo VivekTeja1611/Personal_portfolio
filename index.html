@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivek Teja - Portfolio</title>
+    <title>Vivek Teja - Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,472 +15,480 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #1a1a1a;
+            background-color: #ffffff;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Header */
-        header {
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            padding: 3rem 0;
-            text-align: center;
-            margin: 2rem 0;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            padding: 1rem 0;
         }
 
-        .profile-section {
+        .nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
         }
 
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
+        .logo {
+            font-size: 1.5rem;
             font-weight: 700;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            color: #1a1a1a;
+            text-decoration: none;
         }
 
-        .profile-info h1 {
-            font-size: 3.5rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .profile-info .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 0.5rem;
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
             font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
-        .profile-info .institution {
-            font-size: 1.1rem;
-            color: #888;
-            font-weight: 400;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a1a1a;
         }
 
-        .contact-links {
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge::before {
+            content: "🎓";
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
             display: flex;
             gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
         }
 
-        .contact-links a {
+        .btn-primary {
+            background: #1a1a1a;
             color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
             text-decoration: none;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50px;
+            font-weight: 500;
             transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            border: 2px solid #1a1a1a;
         }
 
-        .contact-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        .btn-primary:hover {
+            background: transparent;
+            color: #1a1a1a;
         }
 
-        /* Sections */
+        .btn-secondary {
+            background: transparent;
+            color: #64748b;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+            color: #1a1a1a;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
         .section {
-            background: rgba(255, 255, 255, 0.95);
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            margin-bottom: 120px;
         }
 
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
         .section h2 {
-            color: #333;
-            margin-bottom: 2rem;
             font-size: 2.5rem;
             font-weight: 700;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* About Section */
-        .about-content {
+        .about-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: start;
         }
 
         .about-text {
-            font-size: 1.1rem;
-            color: #555;
+            font-size: 1.125rem;
+            color: #374151;
             line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-stats {
+        .stats-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .stat-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
 
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
+            color: #1a1a1a;
             display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 500;
         }
 
-        /* Skills Section */
-        .skills {
+        .skills-section {
+            margin-top: 3rem;
+        }
+
+        .skills-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
         .skill-category {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: all 0.3s ease;
         }
 
         .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
-            color: white;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            color: #333;
+        .skill-category h4 {
+            font-size: 1rem;
             font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            justify-content: center;
         }
 
         .skill-tag {
-            background: rgba(102, 126, 234, 0.2);
-            color: #667eea;
-            padding: 0.4rem 1rem;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 500;
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(102, 126, 234, 0.3);
-            transform: translateY(-2px);
         }
 
         /* Projects Section */
-        .projects {
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-color: #cbd5e1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
         }
 
         .project-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            height: 150px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
         }
 
-        .project-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: linear-gradient(to bottom right, transparent 49%, rgba(255,255,255,0.9) 50%);
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
         }
 
-        .project-content {
-            padding: 2rem;
+        .project-date {
+            font-size: 0.875rem;
+            color: #64748b;
+            background: #f8fafc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
         }
 
-        .project-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .project-description {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-highlights {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .project-highlights strong {
+            color: #1a1a1a;
             font-weight: 600;
         }
 
-        .project-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .tech-stack {
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .tech-tag {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
+            background: #1a1a1a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 500;
-            border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
-        .project-links a {
-            color: #667eea;
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            color: #1a1a1a;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .project-links a:hover {
-            color: #764ba2;
-            transform: translateX(5px);
+        .project-link:hover {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
         }
 
         /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
         .contact-item {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
             text-align: center;
-            border: 1px solid rgba(102, 126, 234, 0.2);
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin: 0 auto 1rem;
-            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #64748b;
+            font-size: 0.9rem;
         }
 
         .contact-item a {
-            color: #667eea;
+            color: #1a1a1a;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .contact-item a:hover {
-            color: #764ba2;
+            text-decoration: underline;
         }
 
-        /* Responsive Design */
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: start;
+                gap: 1rem;
+            }
+            
             .container {
-                padding: 0 15px;
-            }
-
-            header {
-                margin: 1rem 0;
-                padding: 2rem;
-            }
-
-            .profile-section {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .profile-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-
-            .profile-info h1 {
-                font-size: 2.5rem;
-            }
-
-            .profile-info .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-links a {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .section {
-                padding: 2rem;
-                margin: 1.5rem 0;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .profile-info h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 1.5rem;
-            }
-
-            .section h2 {
-                font-size: 1.8rem;
-            }
-
-            .skill-category,
-            .project-content {
-                padding: 1.5rem;
+                padding: 0 16px;
             }
         }
 
@@ -495,1328 +504,354 @@
             }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Scroll animations */
-        .section {
+        .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            transition: all 0.6s ease;
         }
 
-        .section.visible {
+        .animate-on-scroll.animated {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="fade-in-up">
-            <div class="profile-section">
-                <div class="profile-avatar">VT</div>
-                <div class="profile-info">
-                    <h1>Vivek Teja</h1>
-                    <p class="subtitle">Computer Science Engineer & AI Enthusiast</p>
-                    <p class="institution">IIT Bombay CSE '28</p>
-                </div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav">
+                <a href="#" class="logo">Vivek Teja</a>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
             </div>
-            <div class="contact-links">
-                <a href="https://github.com/VivekTeja1611" target="_blank">GitHub</a>
-                <a href="mailto:vivekteja@iitb.ac.in">Email</a>
-                <a href="#" target="_blank">LinkedIn</a>
-            </div>
-        </header>
+        </nav>
+    </header>
 
-        <!-- About Section -->
-        <section class="section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate Computer Science student at IIT Bombay, currently in my second year, with a strong interest in artificial intelligence, web development, and data analysis. I enjoy building innovative solutions that solve real-world problems and am constantly exploring new technologies to expand my skill set.
-                    </p>
-                    <p>
-                        My projects range from AI-powered applications to web development and competitive programming, reflecting my diverse interests in the field of computer science. I believe in the power of code to transform ideas into reality and am always eager to take on new challenges.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">2028</span>
-                        <span class="stat-label">Expected Graduation</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Tech Stacks</span>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">IIT Bombay CSE • Class of 2028</div>
+                <h1>Software Engineer & AI Enthusiast</h1>
+                <p class="hero-subtitle">Passionate about building innovative solutions through artificial intelligence, web development, and competitive programming. Currently pursuing Computer Science at IIT Bombay.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">JavaScript</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- About Section -->
+            <section id="about" class="section animate-on-scroll">
+                <div class="section-header">
+                    <div class="section-badge">About Me</div>
+                    <h2>Building the Future with Code</h2>
+                    <p class="section-description">A dedicated Computer Science student with a passion for innovation, problem-solving, and continuous learning in the rapidly evolving tech landscape.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div>
+                        <p class="about-text">
+                            I'm currently pursuing my Bachelor's in Computer Science at the prestigious Indian Institute of Technology Bombay, where I'm developing a strong foundation in software engineering, artificial intelligence, and system design.
+                        </p>
+                        <p class="about-text">
+                            My journey spans across various domains including AI/ML applications, web development, data analysis, and competitive programming. I believe in learning by doing and consistently work on projects that challenge my technical abilities and expand my understanding of computer science.
+                        </p>
+                        
+                        <div class="skills-section">
+                            <h3>Technical Expertise</h3>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h4>Programming Languages</h4>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">C/C++</span>
+                                        <span class="skill-tag">JavaScript</span>
+                                        <span class="skill-tag">HTML/CSS</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>Technologies & Frameworks</h4>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Machine Learning</span>
+                                        <span class="skill-tag">Data Analysis</span>
+                                        <span class="skill-tag">Web Development</span>
+                                        <span class="skill-tag">API Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">12+</span>
+                                <span class="stat-label">Active Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4+</span>
+                                <span class="stat-label">Programming Languages</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2028</span>
+                                <span class="stat-label">Expected Graduation</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Lines of Code</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Web Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🤖</div>
-                    <h3>AI & Data Science</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Jupyter Notebook</span>
-                        <span class="skill-tag">AI Agents</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Projects Section -->
-        <section class="section">
-            <h2>Featured Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-header">🚀</div>
-                    <div class="project-content">
-                        <h3>Vivid AI App</h3>
-                        <p>An innovative AI-powered application that leverages cutting-edge machine learning algorithms to provide intelligent solutions. This project demonstrates my expertise in AI development and practical application of machine learning concepts.</p>
-                        <div class="tech-stack">
+            <!-- Projects Section -->
+            <section id="projects" class="section animate-on-scroll">
+                <div class="section-header">
+                    <div class="section-badge">Portfolio</div>
+                    <h2>Featured Projects</h2>
+                    <p class="section-description">A showcase of my technical projects spanning AI applications, web development, and data analysis tools.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Vivid AI Application Suite</h3>
+                            </div>
+                            <span class="project-date">July 2025</span>
+                        </div>
+                        <p class="project-description">A comprehensive AI application ecosystem featuring both the core Vivid AI App and an accompanying presentation component. This project demonstrates advanced Python programming for AI solutions, featuring machine learning implementations and interactive user interfaces with modern AI development practices.</p>
+                        <div class="project-highlights">
+                            <strong>Technical Achievement:</strong> Implemented end-to-end AI pipeline with interactive presentation layer, showcasing modern Python architecture and user-centric design principles.
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">AI/ML</span>
-                            <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">Interactive UI</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/vivid-ai-app" target="_blank">View Code →</a>
+                            <a href="https://github.com/VivekTeja1611/vivid-ai-app" class="project-link">Core Application</a>
+                            <a href="https://github.com/VivekTeja1611/Vivid-presentation" class="project-link">Presentation Layer</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">📊</div>
-                    <div class="project-content">
-                        <h3>Log File Analyzer</h3>
-                        <p>A comprehensive Python-based web application designed to analyze Apache log files and generate detailed statistical plots. This tool helps in understanding web traffic patterns and server performance metrics through visual analytics.</p>
-                        <div class="tech-stack">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Apache Log File Analyzer</h3>
+                            </div>
+                            <span class="project-date">May 2025</span>
+                        </div>
+                        <p class="project-description">An enterprise-grade Python web application designed for analyzing Apache server log files. Transforms raw log data into actionable insights through comprehensive statistical analysis and interactive visualizations, perfect for system administrators and web developers monitoring server performance.</p>
+                        <div class="project-highlights">
+                            <strong>Impact:</strong> Processes large-scale log files efficiently, generates comprehensive statistical reports, and provides real-time web dashboard for performance monitoring.
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Web Development</span>
-                            <span class="tech-tag">Visualization</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Web Framework</span>
+                            <span class="tech-tag">Statistical Analysis</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/log_file_analyzer" target="_blank">View Code →</a>
+                            <a href="https://github.com/VivekTeja1611/log_file_analyzer" class="project-link">View Project</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">🧬</div>
-                    <div class="project-content">
-                        <h3>iGEM Website Clone</h3>
-                        <p>A fully responsive website replication of the iGEM 2024 platform, showcasing advanced web development skills and attention to design details. This project demonstrates proficiency in modern web technologies and user interface design.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">iGEM 2024 Demo Platform</h3>
+                            </div>
+                            <span class="project-date">May 2025</span>
+                        </div>
+                        <p class="project-description">A meticulously crafted demo website replicating the International Genetically Engineered Machine (iGEM) 2024 competition platform. Showcases advanced front-end development skills with focus on scientific communication, responsive design, and professional presentation standards.</p>
+                        <div class="project-highlights">
+                            <strong>Design Excellence:</strong> Implemented responsive layouts with academic presentation standards, interactive elements, and optimized user experience for scientific content organization.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">Advanced CSS</span>
                             <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">UI/UX</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/iGEM_assignment" target="_blank">View Code →</a>
+                            <a href="https://github.com/VivekTeja1611/iGEM_assignment" class="project-link">View Project</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">💱</div>
-                    <div class="project-content">
-                        <h3>Currency Converter</h3>
-                        <p>A dynamic web application that provides real-time currency conversion using live exchange rates. Features an intuitive user interface and seamless API integration for accurate financial data.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API Integration</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Competitive Programming Solutions</h3>
+                            </div>
+                            <span class="project-date">June 2025</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/currency-converter" target="_blank">View Code →</a>
+                        <p class="project-description">Comprehensive collection of competitive programming solutions developed during the SOC (Seasons of Code) program at IIT Bombay. Features optimized C++ implementations with detailed complexity analysis, showcasing advanced algorithmic thinking and problem-solving methodologies.</p>
+                        <div class="project-highlights">
+                            <strong>Learning Outcome:</strong> Mastered advanced data structures, algorithm optimization, mathematical problem-solving, and efficient code implementation across various difficulty levels.
                         </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">🏆</div>
-                    <div class="project-content">
-                        <h3>Competitive Programming Solutions</h3>
-                        <p>A comprehensive collection of algorithmic solutions and competitive programming problems. This repository showcases problem-solving skills and proficiency in data structures and algorithms using C++.</p>
-                        <div class="tech-stack">
+                        <div class="project-tech">
                             <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Algorithms</span>
                             <span class="tech-tag">Data Structures</span>
-                            <span class="tech-tag">Problem Solving</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Optimization</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/SOC-Competitive-Programming" target="_blank">View Code →</a>
+                            <a href="https://github.com/VivekTeja1611/SOC-Competitive-Programming" class="project-link">View Solutions</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">🤖</div>
-                    <div class="project-content">
-                        <h3>AI Agents Learning</h3>
-                        <p>A comprehensive learning journey through Microsoft's AI Agents curriculum, featuring 11 lessons covering the fundamentals of building intelligent AI agents. This project demonstrates continuous learning and adaptation to emerging AI technologies.</p>
-                        <div class="tech-stack">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">AI Agents Research & Development</h3>
+                            </div>
+                            <span class="project-date">July 2025</span>
+                        </div>
+                        <p class="project-description">Intensive research project following Microsoft's "AI Agents for Beginners" curriculum. Contains hands-on implementations, experiments, and personal projects exploring cutting-edge AI agent systems with detailed Jupyter notebook documentation and practical applications.</p>
+                        <div class="project-highlights">
+                            <strong>Research Depth:</strong> Completed 11 comprehensive lessons covering modern AI agent development, industry best practices, and practical implementation of agent-based systems.
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">AI Agents</span>
-                            <span class="tech-tag">Jupyter Notebook</span>
-                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Jupyter Notebooks</span>
+                            <span class="tech-tag">Research</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/ai-agents-for-beginners" target="_blank">View Code →</a>
+                            <a href="https://github.com/VivekTeja1611/ai-agents-for-beginners" class="project-link">View Research</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Financial Web Applications</h3>
+                            </div>
+                            <span class="project-date">January 2025</span>
+                        </div>
+                        <p class="project-description">Real-time currency conversion tool built with vanilla JavaScript, featuring clean UI design and seamless API integration for accurate exchange rates. Demonstrates proficiency in frontend development, API consumption, and practical financial application development.</p>
+                        <div class="project-highlights">
+                            <strong>Features:</strong> Live exchange rate integration, multi-currency support, responsive interface design, and comprehensive error handling for production reliability.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">DOM Manipulation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VivekTeja1611/currency-converter" class="project-link">View Project</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact Section -->
-        <section class="section">
-            <h2>Let's Connect</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">💻</div>
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/VivekTeja1611" target="_blank">@VivekTeja1611</a></p>
+            <!-- Contact Section -->
+            <section id="contact" class="section animate-on-scroll">
+                <div class="section-header">
+                    <div class="section-badge">Get In Touch</div>
+                    <h2>Let's Build Something Great</h2>
+                    <p class="section-description">I'm always open to discussing new opportunities, collaborations, or innovative projects. Feel free to reach out!</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:vivekteja@iitb.ac.in">vivekteja@iitb.ac.in</a></p>
+
+                <div class="contact-content">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>Professional inquiries and collaboration opportunities</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/VivekTeja1611">github.com/VivekTeja1611</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🎓</div>
+                            <h3>LinkedIn</h3>
+                            <p>Connect for professional networking and opportunities</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p><a href="#" target="_blank">Connect with me</a></p>
-                </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Vivek Teja. Designed and developed with precision and passion.</p>
+        </div>
+    </footer>
 
     <script>
-        // Intersection Observer for scroll animations
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animated');
                 }
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
         });
-
-        // Add smooth hover effects
-        document.querySelectorAll('.project-card, .skill-category, .contact-item, .stat-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Add click ripple effect to buttons
-        document.querySelectorAll('.contact-links a').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255,255,255,0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Add ripple animation to CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
-</html> html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivek Teja - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 3rem 0;
-            text-align: center;
-            margin: 2rem 0;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .profile-info h1 {
-            font-size: 3.5rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .profile-info .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .profile-info .institution {
-            font-size: 1.1rem;
-            color: #888;
-            font-weight: 400;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Sections */
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
-        }
-
-        .section h2 {
-            color: #333;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .stat-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
-            color: white;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: rgba(102, 126, 234, 0.2);
-            color: #667eea;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(102, 126, 234, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Projects Section */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-        }
-
-        .project-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: linear-gradient(to bottom right, transparent 49%, rgba(255,255,255,0.9) 50%);
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-        }
-
-        .project-links a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-links a:hover {
-            color: #764ba2;
-            transform: translateX(5px);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin: 0 auto 1rem;
-            color: white;
-        }
-
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #764ba2;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            header {
-                margin: 1rem 0;
-                padding: 2rem;
-            }
-
-            .profile-section {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .profile-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-
-            .profile-info h1 {
-                font-size: 2.5rem;
-            }
-
-            .profile-info .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-links a {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .section {
-                padding: 2rem;
-                margin: 1.5rem 0;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .profile-info h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 1.5rem;
-            }
-
-            .section h2 {
-                font-size: 1.8rem;
-            }
-
-            .skill-category,
-            .project-content {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Scroll animations */
-        .section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="fade-in-up">
-            <div class="profile-section">
-                <div class="profile-avatar">VT</div>
-                <div class="profile-info">
-                    <h1>Vivek Teja</h1>
-                    <p class="subtitle">Computer Science Engineer & AI Enthusiast</p>
-                    <p class="institution">IIT Bombay CSE '28</p>
-                </div>
-            </div>
-            <div class="contact-links">
-                <a href="https://github.com/VivekTeja1611" target="_blank">GitHub</a>
-                <a href="mailto:vivekteja@iitb.ac.in">Email</a>
-                <a href="#" target="_blank">LinkedIn</a>
-            </div>
-        </header>
-
-        <!-- About Section -->
-        <section class="section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate Computer Science student at IIT Bombay, currently in my second year, with a strong interest in artificial intelligence, web development, and data analysis. I enjoy building innovative solutions that solve real-world problems and am constantly exploring new technologies to expand my skill set.
-                    </p>
-                    <p>
-                        My projects range from AI-powered applications to web development and competitive programming, reflecting my diverse interests in the field of computer science. I believe in the power of code to transform ideas into reality and am always eager to take on new challenges.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">2028</span>
-                        <span class="stat-label">Expected Graduation</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Tech Stacks</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Web Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🤖</div>
-                    <h3>AI & Data Science</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Jupyter Notebook</span>
-                        <span class="skill-tag">AI Agents</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="section">
-            <h2>Featured Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-header">🚀</div>
-                    <div class="project-content">
-                        <h3>Vivid AI App</h3>
-                        <p>An innovative AI-powered application that leverages cutting-edge machine learning algorithms to provide intelligent solutions. This project demonstrates my expertise in AI development and practical application of machine learning concepts.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">AI/ML</span>
-                            <span class="tech-tag">APIs</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/vivid-ai-app" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">📊</div>
-                    <div class="project-content">
-                        <h3>Log File Analyzer</h3>
-                        <p>A comprehensive Python-based web application designed to analyze Apache log files and generate detailed statistical plots. This tool helps in understanding web traffic patterns and server performance metrics through visual analytics.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Web Development</span>
-                            <span class="tech-tag">Visualization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/log_file_analyzer" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">🧬</div>
-                    <div class="project-content">
-                        <h3>iGEM Website Clone</h3>
-                        <p>A fully responsive website replication of the iGEM 2024 platform, showcasing advanced web development skills and attention to design details. This project demonstrates proficiency in modern web technologies and user interface design.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive Design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/iGEM_assignment" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">💱</div>
-                    <div class="project-content">
-                        <h3>Currency Converter</h3>
-                        <p>A dynamic web application that provides real-time currency conversion using live exchange rates. Features an intuitive user interface and seamless API integration for accurate financial data.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API Integration</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/currency-converter" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">🏆</div>
-                    <div class="project-content">
-                        <h3>Competitive Programming Solutions</h3>
-                        <p>A comprehensive collection of algorithmic solutions and competitive programming problems. This repository showcases problem-solving skills and proficiency in data structures and algorithms using C++.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Algorithms</span>
-                            <span class="tech-tag">Data Structures</span>
-                            <span class="tech-tag">Problem Solving</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/SOC-Competitive-Programming" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">🤖</div>
-                    <div class="project-content">
-                        <h3>AI Agents Learning</h3>
-                        <p>A comprehensive learning journey through Microsoft's AI Agents curriculum, featuring 11 lessons covering the fundamentals of building intelligent AI agents. This project demonstrates continuous learning and adaptation to emerging AI technologies.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">AI Agents</span>
-                            <span class="tech-tag">Jupyter Notebook</span>
-                            <span class="tech-tag">Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/VivekTeja1611/ai-agents-for-beginners" target="_blank">View Code →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section">
-            <h2>Let's Connect</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">💻</div>
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/VivekTeja1611" target="_blank">@VivekTeja1611</a></p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:vivekteja@iitb.ac.in">vivekteja@iitb.ac.in</a></p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p><a href="#" target="_blank">Connect with me</a></p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Add smooth hover effects
-        document.querySelectorAll('.project-card, .skill-category, .contact-item, .stat-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Add click ripple effect to buttons
-        document.querySelectorAll('.contact-links a').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255,255,255,0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Add ripple animation to CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html> html>
-<html lang="en">
-<head> <link rel="stylesheet" href="Untitled-5.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playwrite+IN&display=swap');
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-</head> <body onclick="checkcookies()">
-  
-  <section id="web">
-   <div id="welcome">
-    Welcome <br> to My Portfolio!!!
-   </div>
-
-   <nav>  
-        <a href="#Home" class="nav">Home  </a>
-        <a href="Anime" class="nav">Anime</a>
-        <a href="#Acheivement" class="nav">Acheivement </a>
-        <a href="#project" class="nav"> Project</a>
-        <a href="#Hobbies" class="nav">Hobbies</a>
-        <a href="#contact" class="nav">Contact Me</a>
-      </nav>
-
-    
-    <div  class="c">
-      
-      <div id="Home">
-        <h2 id="Name">VivekTeja Chauhan</h2> 
-       <h3>IITB CSE'28 </h3> 
-       <img id="mypic" src="./my.jpg" width="40%">
-       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, ipsa est? Quam odit doloribus ipsa maiores exercitationem porro. Numquam rem maiores sed! Eveniet alias vitae cumque. Expedita adipisci similique sint.</p>
-         
-      <h2>Education</h2>
-      <ul>
-        <li>2024-2028 :&nbsp CSE IIT Bombay </li>
-        <li>2021-2024: &nbsp Narayana college,Hitex city</li>
-        <li> 2005-2021:&nbsp Nobel High school</li>
-      </ul>    
-    
-    </div>
-  
- 
-   <div class="service">
-  <div class="title">
-    <h2>Achievements</h2>
-  </div>
-
-  <div class="box">
-    <div class="card">
-      <i class="fas fa-laptop-code"></i>
-      <h5>Built Full-Stack Web Apps</h5>
-      <div class="pra">
-        <p>I developed a log analyzer web app using Flask, Bash, and Matplotlib, integrating backend scripts with a user-friendly frontend for data analysis.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-user-graduate"></i>
-      <h5>Self-Taught Web Developer</h5>
-      <div class="pra">
-        <p>Learned HTML, CSS, JavaScript, and Flask through self-study, and created responsive websites and tools from scratch to build real-world skills.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-brain"></i>
-      <h5>Machine Learning Enthusiast</h5>
-      <div class="pra">
-        <p>Currently exploring machine learning, computer vision, and Python libraries like PyTorch to build AI-based projects, starting with image classifiers.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-  
- <div id="Hobbies">
-    <div><h2>Hobbies</h2></div>
-   <ul>
-    <li><b>Watching Anime</b></li>
-    <li>Painting: Expressing creativity through colors and brushes.</li>
-   <li>Photography: Capturing moments and scenes with a camera.</li>
-  <li>Writing: Crafting stories, poems, or articles.</li>
-<li>Drawing: Sketching and illustrating images.</li>
-<li>Crafting: Creating handmade items like jewelry, pottery, or decorations.</li>
-<li>Hiking:Exploring nature trails and enjoying the outdoors.</li>
-<li>Cycling: Riding bikes for fun, exercise, or exploration.</li>
-<li>Gardening: Growing plants, flowers, and vegetables.</li>
-<li>Birdwatching: Observing and identifying different bird species.</li>
-</ul>
-</div>   
- <div id="portfolio" class="portfolio">
-  <div class="title">
-    <h2>My Projects</h2>
-  </div>
-  <div class="box">
-    <div class="card">
-      <i class="fas fa-terminal"></i>
-      <h5>Apache Log Analyzer</h5>
-      <div class="pra">
-        <p>A web app built with Flask that lets users upload Apache logs, filter them, convert to CSV using Bash scripts, and view traffic graphs with Matplotlib.</p>
-        <p style="text-align: center;">
-          <a class="button" href="#">View Project</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-code"></i>
-      <h5>Personal Portfolio Website</h5>
-      <div class="pra">
-        <p>A responsive personal portfolio built with HTML, CSS, and JavaScript showcasing my skills, background, and projects.</p>
-        <p style="text-align: center;">
-          <a class="button" href="#">View Project</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-brain"></i>
-      <h5>Cat vs Dog Classifier (Learning)</h5>
-      <div class="pra">
-        <p>I'm working on a machine learning project using Python and CNNs to classify cat and dog images — part of my journey into AI and deep learning.</p>
-        <p style="text-align: center;">
-          <a class="button" href="#">View Project</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-         <section class="about">
-  <div class="main">
-    <img src="img.jpg" alt="My photo">
-    <div class="about-text">
-      <h2>About Me</h2>
-      <h5>Student & Web Developer</h5>
-      <p>
-        I'm an 18-year-old B.Tech student passionate about technology and problem-solving. I enjoy building projects using C++, JavaScript, HTML, CSS, and Python. 
-        Recently, I've been working on web-based tools like a Flask-powered log file analyzer. I'm also learning machine learning and exploring ways to earn through practical coding projects.
-        My goal is to keep learning, improve my development skills, and contribute to real-world software.
-      </p>
-      <button type="button">Let's Talk</button>
-    </div>
-  </div>
-</section>
-
-      <div  id="contact" ><footer>
-       <div><h2>Contact Me:</h2></div> 
-        email:<a href="mailto:vivektejaoppo1611@gmail.com">vivektejaoppo1611@gamil.com</a>
-       &nbsp;
-       <br><br>
-        phone:<a href="tel:7207840722">7207840722</a>
-      <br><br>
-        <a href="https://github.com/VivekTeja1611"><img src="https://imgs.search.brave.com/-GCUGRflPQlulVFtNfZI_1NGwZMChS1uzPNeyZq0Ch4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzEx/L0dpdEh1Yi1sb2dv/LTUwMHgyODkuanBn" alt="github" width="5%"></a>
-        
-        <a href="https://www.instagram.com/vivek_teja_chauhan.sabavat/"><img src="https://imgs.search.brave.com/4HDqFbLOhjQll4awFRi3DtGHbSGlDQM__WHnn-GI5Rc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/Lzk1L0luc3RhZ3Jh/bV9sb2dvXzIwMjIu/c3Zn" alt="instagram" width="3%"></a>
-       
-        <a href="https://www.linkedin.com/feed/"><img src="https://imgs.search.brave.com/SQsaFNKXL9x2pacICOrPpnY5c1-Eee1Vf0jOmntInaM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NhL0xpbmtlZElu/X2xvZ29faW5pdGlh/bHMucG5n" alt="linkedin" width="3%"></a>  
-       <a href="https://x.com/VivekTeja1611"><img src="https://imgs.search.brave.com/lvrhKyTpWLINLDv_m2FLLJEj9fJOKW9mV0oXr9tLCqY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmVl/bG9nb3BuZy5jb20v/aW1hZ2VzL2FsbF9p/bWcvMTY5MDY0MzY0/MHR3aXR0ZXIteC1p/Y29uLXBuZy5wbmc" alt="twitter" width="3%"></a>
-    </footer></div>
-  </div>
-</div>
-<table style="color: white;border: 1px solid white;">
-  <tr>
-    <th>Name</th>
-    <th>department</th>
-    <th>relation</th>    
-  </tr>
-  <tr>
-    <td>vivek</td>
-    <td>cse</td>
-    <td>self</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>cse</td>
-    <td>friend</td>
-  </tr>
-</table>
-<form action="" method="post" style="color: white;">
-  <label for="name">username</label>  
-  <input type="text" name="username" value="name">
-  <br>
-  <label for="file">image</label>
-  <input type="file" name="file" value="imag">
-    <input type="submit">
-</form>
-</body></section>
-   <script src="script.js"></script>
-   
-
-
 </html>
-
